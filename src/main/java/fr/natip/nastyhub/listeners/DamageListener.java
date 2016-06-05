@@ -1,6 +1,5 @@
 package fr.natip.nastyhub.listeners;
 
-import fr.natip.nastyhub.NastyHubPlugin;
 import org.bukkit.GameMode;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -9,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import fr.natip.nastyhub.NastyHubPlugin;
 
 public class DamageListener implements Listener {
 	
@@ -32,6 +33,18 @@ public class DamageListener implements Listener {
 			
 			e.setCancelled(true);		
 	    }
+	
+	@EventHandler
+	
+	public void onPlayerJoin(PlayerJoinEvent e) {
+		Player p = e.getPlayer();
+		p.setGameMode(GameMode.ADVENTURE);
+		
+	 
+		
+		
+	}
+
 	
 	@EventHandler
 	public void onFood(FoodLevelChangeEvent e) {
