@@ -1,0 +1,2 @@
+# NastyHub
+Hub Plugin
