@@ -4,3 +4,5 @@ foodWorlds:
  - world
 gamemodeWorlds:
  - world
+weatherWorlds:
+  - world
