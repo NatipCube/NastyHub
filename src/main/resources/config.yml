@@ -1,6 +1,13 @@
+lockTime: 1000
 healthWorlds:
  - world
 foodWorlds:
  - world
 gamemodeWorlds:
+ - world
+weatherWorlds:
+ - world
+timeWorlds:
+ - world
+spawnWorlds:
  - world
