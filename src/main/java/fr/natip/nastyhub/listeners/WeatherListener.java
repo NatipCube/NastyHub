@@ -1,29 +1,31 @@
-package fr.natip.nastyhub.runnables;
+package fr.natip.nastyhub.listeners;
 
 import fr.natip.nastyhub.NastyHubPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.World;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.entity.Entity;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 
 /**
- * Created by kevin on 06/06/2016.
+ * Created by kevin on 05/06/2016.
  */
-public class TimeRunnable extends BukkitRunnable {
+
+public class WeatherListener implements Listener {
 
     NastyHubPlugin plugin;
 
-    public TimeRunnable(NastyHubPlugin instance) {
+    public WeatherListener(NastyHubPlugin instance) {
         this.plugin = instance;
     }
 
-   public void run() {
-
-        for (World w : Bukkit.getServer().getWorlds()) {
-            if (!plugin.getConfig().getList("timeWorlds").contains(w.getName())) {
-                return;
-            }
-
-            w.setTime(plugin.getConfig().getInt("lockTime"));
+    @EventHandler
+    public void weatherChange(WeatherChangeEvent e) {
+        if (!plugin.getConfig().getList("weatherWorlds").contains(e.getWorld().getName())) {
+            return;
         }
+
+        e.setCancelled(true);
     }
 }
+
